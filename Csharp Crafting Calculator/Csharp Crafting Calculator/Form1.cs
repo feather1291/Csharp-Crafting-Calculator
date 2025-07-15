@@ -177,8 +177,7 @@ namespace Csharp_Crafting_Calculator
                 MessageBox.Show(err.ToString());
                 return;
             }
-            database.load();
-            bs.DataSource = database.crafting_displays;
+            bs.DataSource = database.data.crafting_displays;
             bs.ResetBindings(false);
         }
 
