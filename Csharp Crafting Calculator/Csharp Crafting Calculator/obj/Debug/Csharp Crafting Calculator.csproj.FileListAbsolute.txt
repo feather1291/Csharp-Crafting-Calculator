@@ -1,0 +1,22 @@
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.exe.config
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.exe
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.pdb
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csprojAssemblyReference.cache
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Form1.resources
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Properties.Resources.resources
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.GenerateResource.cache
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.CoreCompileInputs.cache
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.exe
+C:\Users\anlei\source\repos\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.pdb
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.exe.config
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.exe
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.pdb
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csprojAssemblyReference.cache
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Form1.resources
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Properties.Resources.resources
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.GenerateResource.cache
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.CoreCompileInputs.cache
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.exe
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.pdb
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\PresentationFramework.dll
+F:\CodeForFun\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.CopyComplete
