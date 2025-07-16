@@ -25,6 +25,15 @@ namespace Csharp_Crafting_Calculator
             this.crafting_num = 1;
             this.is_end = true;
         }
+        public Item()
+        {
+            name = "临时物品";
+            material_index = new List<Item>();
+            material_num = new List<int>();
+            product_index = new List<Item>();
+            crafting_num = 1;
+            is_end = true;
+        }
     };
 
     //合成显示
@@ -57,9 +66,7 @@ namespace Csharp_Crafting_Calculator
     [Serializable]
     class Crafting_table_database
     {
-        //public List<Item> items = new List<Item>();
         public System.Windows.Forms.BindingSource bs;
-        //public List<Crafting_Display> crafting_displays = new List<Crafting_Display>();
         public Crafting_Data data = new Crafting_Data();
 
         public Crafting_table_database(System.Windows.Forms.BindingSource bs)
@@ -133,9 +140,31 @@ namespace Csharp_Crafting_Calculator
         }
 
         //修改合成表
-        public void edit(int edit_index, string name, int num, List<string> material, List<int> material_num)
+        public void edit(string name, int num, List<string> material, List<int> material_num)
         {
-            
+            //找到要修改的物品
+            Item edit_item = null;
+            for (int i = 0; i < data.items.Count; i++)
+            {
+                if (data.items[i].name == name)
+                {
+                    edit_item = data.items[i];
+                    break;
+                }
+            }
+            //去掉原有原料合成关系
+            foreach (var mt in edit_item.material_index)
+            {
+                for (int i = mt.product_index.Count-1; i >= 0; i--)
+                {
+                    if(edit_item == mt.product_index[i])
+                    {
+                        mt.product_index.RemoveAt(i);
+                    }
+                }
+            }
+            edit_item.is_end = true;
+            add(name, num, material, material_num);
         }
 
         //进行原料计算
@@ -215,6 +244,9 @@ namespace Csharp_Crafting_Calculator
             //遍历并生成递归记录
             for (int i = 0; i < calculate_index.Count; i++)
             {
+                //合成倍数
+                int crafting_multi = crafting_num[i] / calculate_index[i].crafting_num + 
+                    (crafting_num[i] % calculate_index[i].crafting_num == 0 ? 0 : 1);
                 //检查是否在记录表中重复
                 bool add_flag = true;
                 for(int j=0; j<record.Count; j++)
@@ -226,7 +258,7 @@ namespace Csharp_Crafting_Calculator
                         break;
                     }
                 }
-                if(add_flag) record.Add(new Recursive_Record(calculate_index[i], crafting_num[i], level));//记录被合成物品
+                if(add_flag) record.Add(new Recursive_Record(calculate_index[i], crafting_num[i] , level));//记录被合成物品
                 //生成原料列表
                 for(int j=0; j< calculate_index[i].material_index.Count; j++)
                 {
@@ -278,6 +310,28 @@ namespace Csharp_Crafting_Calculator
             }
             material = sb.ToString();
             return new Crafting_Display(item, material);
+        }
+        //搜索方法
+        public List<Crafting_Display> Search(List<string> name)
+        {
+            //如果没有搜索内容
+
+            List<Crafting_Display>temp =  new List<Crafting_Display>();
+            for (int i = 0; i < data.crafting_displays.Count; i++)
+            {
+                bool match = true;
+                //是否与该物品匹配
+                for (int j = 0; j < name.Count; j++)
+                {
+                    if (data.crafting_displays[i].item != name[j])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) temp.Add(data.crafting_displays[i]);
+            }
+            return temp;
         }
     }
 
