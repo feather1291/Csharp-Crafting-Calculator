@@ -74,6 +74,21 @@ namespace Csharp_Crafting_Calculator
             this.bs = bs;
             bs.DataSource = data.crafting_displays;
         }
+        //仅添加物品，无合成方式
+        public void add(string name)
+        {
+            //检查被合成物品有无重复
+            for (int i = 0; i < data.items.Count; i++)
+            {
+                if (data.items[i].name == name)//如果与输入物品重复
+                {
+                    throw new ArgumentException("同一个物品不能存在两种合成方式！", name);
+                }
+            }
+            Item input_item = new Item(name);
+            data.items.Add(input_item);
+            bs.Add(data_to_display(input_item));
+        }
         //添加合成表
         public void add(string name, int num, List<string> material, List<int> material_num)
         {

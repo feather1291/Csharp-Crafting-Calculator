@@ -19,6 +19,7 @@ namespace Csharp_Crafting_Calculator
         private string database_filePath = ".\\Crafting_table";
         private Panel_Selector panel_selector = new Panel_Selector();
         private Crafting_Display detail_item;
+        private Custom_UI custom_UI;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +30,10 @@ namespace Csharp_Crafting_Calculator
             panel_selector.add_panel(calculate_panel);
             panel_selector.add_panel(add_panel);
             panel_selector.add_panel(detail_panel);
+            custom_UI = new Custom_UI(this);
+            // 可选：自定义参数
+            custom_UI.hint_label.StayDuration = 3000; // 提示停留 3 秒
+            custom_UI.hint_label.BottomOffset = 390;   // 距离底部
             //指定表格数据源
             displayed_crafting_table.AutoGenerateColumns = true;
             displayed_crafting_table.Font =  new Font("微软雅黑", 12);
@@ -42,8 +47,6 @@ namespace Csharp_Crafting_Calculator
             displayed_crafting_table.Columns[0].FillWeight = 30; // 第1列占40%宽度
             displayed_crafting_table.Columns[1].FillWeight = 60; // 第2列占60%宽度
             displayed_crafting_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //manage_button.BackColor = Color.White;
-            //manage_button.FlatStyle = FlatStyle.Flat;
         }
 
         private void save_database()
@@ -53,6 +56,7 @@ namespace Csharp_Crafting_Calculator
                 BinaryFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(stream, database.data);
             }
+            custom_UI.hint_label.ShowSuccess("保存成功！");
         }
 
         private Crafting_Data load_database()
@@ -118,14 +122,23 @@ namespace Csharp_Crafting_Calculator
             {
                 if(material_name[i] == item_name[0])
                 {
-                    MessageBox.Show(string.Format("产物{0}不能同时出现在合成材料中", item_name[0]));
+                    custom_UI.hint_label.ShowError(string.Format("产物{0}不能同时出现在合成材料中", item_name[0]));
                     return;
                 }
             }
             //进行物品添加
+            if(item_name.Count == 0)
+            {
+                custom_UI.hint_label.ShowError("被合成名称不能为空！");
+                return;
+            }
             try
             {
-                database.add(item_name[0], item_num[0], material_name, material_num);
+                if (material_name.Count == 0)
+                    database.add(item_name[0]);
+                else 
+                    database.add(item_name[0], item_num[0], material_name, material_num);
+
             }
             catch (Exception err)
             {
@@ -135,12 +148,13 @@ namespace Csharp_Crafting_Calculator
             }
             add_item_box.Clear();
             add_material_box.Clear();
+            custom_UI.hint_label.ShowSuccess("添加成功！");
         }
         //对单个字符串进行提取
         private void item_info_extract(string input, List<string> names, List<int> nums)
         {
             if (string.IsNullOrEmpty(input))
-                throw new ArgumentException("输入不能为空！", input);
+                return;
 
             // 使用正则表达式匹配"物品名*数量"格式
             var regex = new Regex(@"^(?<name>[^*]+)(?:\*(?<quantity>\d+))?$");
@@ -291,13 +305,6 @@ namespace Csharp_Crafting_Calculator
         //删除合成表
         private void button3_Click(object sender, EventArgs e)
         {
-            //产生确认窗口
-            //System.Windows.MessageBoxResult result = System.Windows.MessageBox.Show(
-            //    "确认删除该物品的合成方式？",        // 消息内容
-            //    "操作确认",                // 对话框标题
-            //    System.Windows.MessageBoxButton.OKCancel, // 显示“确定”和“取消”按钮
-            //    System.Windows.MessageBoxImage.Question   // 显示问号图标
-            //);
             DialogResult result = MessageBox.Show(
                 "确认删除该物品的合成方式？",
                 "操作确认",
@@ -312,6 +319,7 @@ namespace Csharp_Crafting_Calculator
                 database.delete_crafting(item_info_extract(detail_item.item));
                 textBox1.Text = detail_item.item;
                 richTextBox1.Text = detail_item.materials;
+                custom_UI.hint_label.ShowSuccess("删除成功！");
             }
         }
 
@@ -319,7 +327,7 @@ namespace Csharp_Crafting_Calculator
         {
             panel_selector.only_display(manage_panel);
         }
-
+        //表格双击事件
         private void displayed_crafting_table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // 检查是否点击有效行（排除表头和空白区域）
@@ -343,7 +351,7 @@ namespace Csharp_Crafting_Calculator
             //用户修改了box中的物品名
             if (item_info_extract(textBox1.Text) != item_info_extract(detail_item.item))
             {
-                MessageBox.Show("合成表不能修改被合成的物品名！");
+                custom_UI.hint_label.ShowError("合成表不能修改被合成的物品名！");
                 textBox1.Text = detail_item.item;
                 return;
             }
@@ -368,13 +376,14 @@ namespace Csharp_Crafting_Calculator
             {
                 if (material_name[i] == item_name[0])
                 {
-                    MessageBox.Show(string.Format("产物{0}不能同时出现在合成材料中", item_name[0]));
+                    custom_UI.hint_label.ShowError(string.Format("产物{0}不能同时出现在合成材料中!", item_name[0]));
                     return;
                 }
             }
             //进行物品添加
             try
             {
+                if (material_name.Count == 0) item_num[0] = 1;
                 database.edit(item_name[0], item_num[0], material_name, material_num);
             }
             catch (Exception err)
@@ -383,6 +392,7 @@ namespace Csharp_Crafting_Calculator
                 MessageBox.Show(err.ToString());
                 return;
             }
+            custom_UI.hint_label.ShowSuccess("修改成功！");
         }
         //删除物品
         private void button4_Click(object sender, EventArgs e)
@@ -404,6 +414,7 @@ namespace Csharp_Crafting_Calculator
                 richTextBox1.Text = "";
                 //跳转回主界面
                 manage_button_Click(sender, e);
+                custom_UI.hint_label.ShowSuccess("删除成功！");
             }
         }
     }

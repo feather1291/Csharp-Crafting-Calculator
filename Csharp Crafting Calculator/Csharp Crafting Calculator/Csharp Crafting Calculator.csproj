@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crafting_table_database.cs" />
+    <Compile Include="Custom_UI.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
