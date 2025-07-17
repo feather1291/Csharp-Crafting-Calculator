@@ -84,7 +84,7 @@ namespace Csharp_Crafting_Calculator
                 if (data.items[i].name == name)//如果与输入物品重复且物品不是末端节点
                 {
                     if (data.items[i].is_end) renew_index = i;
-                    else throw new ArgumentException("同一个物品不能存在两种合成方式！", nameof(name));
+                    else throw new ArgumentException("同一个物品不能存在两种合成方式！", name);
                 }
             }
             //检查原料是否与物品列表有重复
@@ -121,49 +121,62 @@ namespace Csharp_Crafting_Calculator
                 input_item.crafting_num = num;
                 input_item.is_end = false;
                 data.items.Add(input_item);
+                //向原料对象中新增当前产物
+                for (int i = 0; i < material_index.Count; i++)
+                {
+                    material_index[i].product_index.Add(input_item);
+                }
+                if (loop_detection(data.items))
+                {
+                    //对数据进行还原
+                    for (int i = 0; i < material_index.Count; i++)
+                    {
+                        material_index[i].product_index.RemoveAt(material_index[i].product_index.Count - 1);
+                    }
+                    //报错
+                    throw new ArgumentException("合成表编辑失败，合成路径出现闭环！");
+                }
                 bs.Add(data_to_display(input_item));
             }
             else                    //更新信息
             {
+                //记录原始信息
+                List<Item> temp_m_i = data.items[renew_index].material_index;
+                List<int> temp_m_n = data.items[renew_index].material_num;
+                int temp_n = data.items[renew_index].crafting_num;
+                bool temp_i = data.items[renew_index].is_end;
                 input_item = data.items[renew_index];
                 input_item.material_index = material_index;
                 input_item.material_num = material_num;
                 input_item.crafting_num = num;
                 input_item.is_end = false;
+                //向原料对象中新增当前产物
+                for (int i = 0; i < material_index.Count; i++)
+                {
+                    material_index[i].product_index.Add(input_item);
+                }
+                if (loop_detection(data.items))
+                {
+                    //对数据进行还原
+                    for (int i = 0; i < material_index.Count; i++)
+                    {
+                        material_index[i].product_index.RemoveAt(material_index[i].product_index.Count-1);
+                    }
+                    input_item.material_index = temp_m_i;
+                    input_item.material_num = temp_m_n;
+                    input_item.crafting_num = temp_n;
+                    input_item.is_end = temp_i;
+                    //报错
+                    throw new ArgumentException("合成表编辑失败，合成路径出现闭环！");
+                }
                 bs[renew_index] = (data_to_display(input_item));
-            }
-            //向原料对象中新增当前产物
-            for (int i = 0; i < material_index.Count; i++)
-            {
-                material_index[i].product_index.Add(input_item);
             }
         }
 
         //修改合成表
         public void edit(string name, int num, List<string> material, List<int> material_num)
         {
-            //找到要修改的物品
-            Item edit_item = null;
-            for (int i = 0; i < data.items.Count; i++)
-            {
-                if (data.items[i].name == name)
-                {
-                    edit_item = data.items[i];
-                    break;
-                }
-            }
-            //去掉原有原料合成关系
-            foreach (var mt in edit_item.material_index)
-            {
-                for (int i = mt.product_index.Count-1; i >= 0; i--)
-                {
-                    if(edit_item == mt.product_index[i])
-                    {
-                        mt.product_index.RemoveAt(i);
-                    }
-                }
-            }
-            edit_item.is_end = true;
+            delete_crafting(name);
             add(name, num, material, material_num);
         }
 
@@ -268,7 +281,7 @@ namespace Csharp_Crafting_Calculator
                     {
                         if(material_index[k] == calculate_index[i].material_index[j])
                         {
-                            material_num[k] = material_num[k] + calculate_index[i].material_num[j] * crafting_num[i];
+                            material_num[k] = material_num[k] + calculate_index[i].material_num[j] * crafting_multi;
                             add_flag = false;
                             break;
                         }
@@ -276,7 +289,7 @@ namespace Csharp_Crafting_Calculator
                     if(add_flag)
                     {
                         material_index.Add(calculate_index[i].material_index[j]);
-                        material_num.Add(calculate_index[i].material_num[j] * crafting_num[i]);
+                        material_num.Add(calculate_index[i].material_num[j] * crafting_multi);
                     }
                     
                 }
@@ -287,6 +300,100 @@ namespace Csharp_Crafting_Calculator
                 max_level = BF_search(material_index, material_num, record, level + 1);
 
             return Math.Max(level, max_level);
+        }
+        //闭环检测
+        private bool loop_detection(List<Item> graph)
+        {
+            int numVertices = graph.Count;
+            int[] inDegree = new int[numVertices];
+            Queue<int> queue = new Queue<int>();
+            // 计算所有节点的入度
+            for (int u = 0; u < numVertices; u++)
+            {
+                inDegree[u] = graph[u].product_index.Count;
+                if(inDegree[u] == 0) queue.Enqueue(u);
+            }
+
+            int processedCount = 0;
+            while (queue.Count > 0)
+            {
+                int u = queue.Dequeue();
+                processedCount++;
+
+                // 更新邻接节点的入度
+                foreach (Item i in graph[u].material_index)
+                {
+                    int v = graph.IndexOf(i);
+                    inDegree[v]--;
+                    if (inDegree[v] == 0)
+                    {
+                        queue.Enqueue(v);
+                    }
+                }
+            }
+
+            // 若未处理完所有节点，存在回路
+            return processedCount != numVertices;
+        }
+        public void delete_crafting(string name)
+        {
+            //找到要修改的物品
+            Item edit_item = null;
+            int i;
+            for (i = 0; i < data.items.Count; i++)
+            {
+                if (data.items[i].name == name)
+                {
+                    edit_item = data.items[i];
+                    //修改显示内容
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(name);sb.Append('*');sb.Append('1');
+                    data.crafting_displays[i].item = sb.ToString();
+                    data.crafting_displays[i].materials = "";
+                    break;
+                }
+            }
+            //去掉原有原料合成关系
+            foreach (var mt in edit_item.material_index)
+            {
+                for (i = mt.product_index.Count - 1; i >= 0; i--)
+                {
+                    if (edit_item == mt.product_index[i])
+                    {
+                        mt.product_index.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+            //清空合成数据
+            edit_item.material_index = new List<Item>();
+            edit_item.material_num = new List<int>();
+            edit_item.crafting_num = 1;
+            edit_item.is_end = true;
+        }
+        public void delete_item(string name)
+        {
+            //找到要修改的物品
+            Item edit_item = null;
+            Crafting_Display edit_display = null;
+            for (int i = 0; i < data.items.Count; i++)
+            {
+                if (data.items[i].name == name)
+                {
+                    edit_item = data.items[i];
+                    //修改显示内容
+                    edit_display = data.crafting_displays[i];
+                    break;
+                }
+            }
+            //删除该物品相关合成表
+            List<Item> product = new List<Item>(edit_item.product_index);
+            foreach (var item in product)
+            {
+                delete_crafting(item.name);
+            }
+            data.items.Remove(edit_item);
+            data.crafting_displays.Remove(edit_display);
         }
         private Crafting_Display data_to_display(Item input)
         {

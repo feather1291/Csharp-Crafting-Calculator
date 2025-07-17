@@ -22,6 +22,9 @@ namespace Csharp_Crafting_Calculator
         public Form1()
         {
             InitializeComponent();
+            // 禁止调整大小
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // 固定单边框，无最大化按钮
+            this.MaximizeBox = false; // 禁用最大化按钮
             panel_selector.add_panel(manage_panel);
             panel_selector.add_panel(calculate_panel);
             panel_selector.add_panel(add_panel);
@@ -39,6 +42,8 @@ namespace Csharp_Crafting_Calculator
             displayed_crafting_table.Columns[0].FillWeight = 30; // 第1列占40%宽度
             displayed_crafting_table.Columns[1].FillWeight = 60; // 第2列占60%宽度
             displayed_crafting_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //manage_button.BackColor = Color.White;
+            //manage_button.FlatStyle = FlatStyle.Flat;
         }
 
         private void save_database()
@@ -67,6 +72,7 @@ namespace Csharp_Crafting_Calculator
         private void manage_button_Click(object sender, EventArgs e)
         {
             panel_selector.only_display(manage_panel);
+            search_button_Click(sender, e);
         }
 
         private void calculate_button_Click(object sender, EventArgs e)
@@ -229,7 +235,17 @@ namespace Csharp_Crafting_Calculator
                 return;
             }
             string output_text = null;
-            database.material_calculate(item_name, item_num, ref output_text);
+            //尝试计算
+            try
+            {
+                database.material_calculate(item_name, item_num, ref output_text);
+            }
+            catch (Exception err)
+            {
+                //显示错误
+                MessageBox.Show(err.ToString());
+                return;
+            }
             process_box.Text = output_text;
         }
 
@@ -272,9 +288,31 @@ namespace Csharp_Crafting_Calculator
             }
         }
 
+        //删除合成表
         private void button3_Click(object sender, EventArgs e)
         {
+            //产生确认窗口
+            //System.Windows.MessageBoxResult result = System.Windows.MessageBox.Show(
+            //    "确认删除该物品的合成方式？",        // 消息内容
+            //    "操作确认",                // 对话框标题
+            //    System.Windows.MessageBoxButton.OKCancel, // 显示“确定”和“取消”按钮
+            //    System.Windows.MessageBoxImage.Question   // 显示问号图标
+            //);
+            DialogResult result = MessageBox.Show(
+                "确认删除该物品的合成方式？",
+                "操作确认",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
 
+            // 根据用户选择执行逻辑
+            if (result == DialogResult.OK)
+            {
+                // 执行确认后的操作
+                database.delete_crafting(item_info_extract(detail_item.item));
+                textBox1.Text = detail_item.item;
+                richTextBox1.Text = detail_item.materials;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -299,7 +337,7 @@ namespace Csharp_Crafting_Calculator
                 detail_item = display;
             }
         }
-
+        //修改合成表
         private void button1_Click(object sender, EventArgs e)
         {
             //用户修改了box中的物品名
@@ -344,6 +382,28 @@ namespace Csharp_Crafting_Calculator
                 //显示错误
                 MessageBox.Show(err.ToString());
                 return;
+            }
+        }
+        //删除物品
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //产生确认窗口
+            DialogResult result = MessageBox.Show(
+                "删除该物品后，以该物品为原料的合成表也会一起被删除，确认删除该物品？",
+                "操作确认",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            // 根据用户选择执行逻辑
+            if (result == DialogResult.OK)
+            {
+                // 执行确认后的操作
+                database.delete_item(item_info_extract(detail_item.item));
+                textBox1.Text = "";
+                richTextBox1.Text = "";
+                //跳转回主界面
+                manage_button_Click(sender, e);
             }
         }
     }

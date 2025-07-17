@@ -62,32 +62,34 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.calculate_panel.SuspendLayout();
             this.manage_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayed_crafting_table)).BeginInit();
             this.add_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
             this.detail_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // calculate_panel
             // 
-            this.calculate_panel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.calculate_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.calculate_panel.Controls.Add(this.label3);
             this.calculate_panel.Controls.Add(this.label2);
             this.calculate_panel.Controls.Add(this.product_box);
             this.calculate_panel.Controls.Add(this.cal_btn);
             this.calculate_panel.Controls.Add(this.process_box);
-            this.calculate_panel.Location = new System.Drawing.Point(0, 46);
+            this.calculate_panel.Location = new System.Drawing.Point(0, 49);
             this.calculate_panel.Name = "calculate_panel";
-            this.calculate_panel.Size = new System.Drawing.Size(800, 407);
+            this.calculate_panel.Size = new System.Drawing.Size(800, 404);
             this.calculate_panel.TabIndex = 3;
             this.calculate_panel.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(25, 105);
@@ -139,11 +141,13 @@
             // 
             // manage_button
             // 
+            this.manage_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.manage_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.manage_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.manage_button.Location = new System.Drawing.Point(0, -2);
+            this.manage_button.Location = new System.Drawing.Point(270, 5);
+            this.manage_button.Margin = new System.Windows.Forms.Padding(0);
             this.manage_button.Name = "manage_button";
-            this.manage_button.Size = new System.Drawing.Size(394, 42);
+            this.manage_button.Size = new System.Drawing.Size(105, 42);
             this.manage_button.TabIndex = 0;
             this.manage_button.Text = "合成表管理";
             this.manage_button.UseVisualStyleBackColor = true;
@@ -153,9 +157,9 @@
             // 
             this.calculate_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.calculate_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.calculate_button.Location = new System.Drawing.Point(400, -2);
+            this.calculate_button.Location = new System.Drawing.Point(384, 5);
             this.calculate_button.Name = "calculate_button";
-            this.calculate_button.Size = new System.Drawing.Size(400, 42);
+            this.calculate_button.Size = new System.Drawing.Size(105, 42);
             this.calculate_button.TabIndex = 1;
             this.calculate_button.Text = "合成计算";
             this.calculate_button.UseVisualStyleBackColor = true;
@@ -168,16 +172,16 @@
             // 
             // manage_panel
             // 
-            this.manage_panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.manage_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.manage_panel.Controls.Add(this.search_box);
             this.manage_panel.Controls.Add(this.load_button);
             this.manage_panel.Controls.Add(this.add_button);
             this.manage_panel.Controls.Add(this.save_button);
             this.manage_panel.Controls.Add(this.displayed_crafting_table);
             this.manage_panel.Controls.Add(this.search_button);
-            this.manage_panel.Location = new System.Drawing.Point(0, 46);
+            this.manage_panel.Location = new System.Drawing.Point(0, 49);
             this.manage_panel.Name = "manage_panel";
-            this.manage_panel.Size = new System.Drawing.Size(800, 407);
+            this.manage_panel.Size = new System.Drawing.Size(800, 404);
             this.manage_panel.TabIndex = 2;
             // 
             // search_box
@@ -228,7 +232,7 @@
             // 
             // displayed_crafting_table
             // 
-            this.displayed_crafting_table.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
+            this.displayed_crafting_table.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.displayed_crafting_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.displayed_crafting_table.GridColor = System.Drawing.SystemColors.ScrollBar;
             this.displayed_crafting_table.Location = new System.Drawing.Point(27, 100);
@@ -252,16 +256,16 @@
             // 
             // add_panel
             // 
-            this.add_panel.BackColor = System.Drawing.SystemColors.Info;
+            this.add_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.add_panel.Controls.Add(this.add_makesure_button);
             this.add_panel.Controls.Add(this.label1);
             this.add_panel.Controls.Add(this.add_item_label);
             this.add_panel.Controls.Add(this.add_material_box);
             this.add_panel.Controls.Add(this.add_item_box);
             this.add_panel.Controls.Add(this.back_add_button);
-            this.add_panel.Location = new System.Drawing.Point(0, 46);
+            this.add_panel.Location = new System.Drawing.Point(0, 49);
             this.add_panel.Name = "add_panel";
-            this.add_panel.Size = new System.Drawing.Size(800, 407);
+            this.add_panel.Size = new System.Drawing.Size(800, 404);
             this.add_panel.TabIndex = 4;
             this.add_panel.Visible = false;
             // 
@@ -322,7 +326,7 @@
             // 
             this.back_add_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.back_add_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.back_add_button.Location = new System.Drawing.Point(12, 19);
+            this.back_add_button.Location = new System.Drawing.Point(27, 11);
             this.back_add_button.Name = "back_add_button";
             this.back_add_button.Size = new System.Drawing.Size(75, 38);
             this.back_add_button.TabIndex = 0;
@@ -332,7 +336,7 @@
             // 
             // detail_panel
             // 
-            this.detail_panel.BackColor = System.Drawing.SystemColors.Info;
+            this.detail_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.detail_panel.Controls.Add(this.button4);
             this.detail_panel.Controls.Add(this.button3);
             this.detail_panel.Controls.Add(this.button1);
@@ -341,9 +345,9 @@
             this.detail_panel.Controls.Add(this.richTextBox1);
             this.detail_panel.Controls.Add(this.textBox1);
             this.detail_panel.Controls.Add(this.button2);
-            this.detail_panel.Location = new System.Drawing.Point(0, 46);
+            this.detail_panel.Location = new System.Drawing.Point(0, 49);
             this.detail_panel.Name = "detail_panel";
-            this.detail_panel.Size = new System.Drawing.Size(800, 404);
+            this.detail_panel.Size = new System.Drawing.Size(800, 401);
             this.detail_panel.TabIndex = 5;
             this.detail_panel.Visible = false;
             // 
@@ -357,6 +361,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "删除物品";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -427,7 +432,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.Location = new System.Drawing.Point(12, 19);
+            this.button2.Location = new System.Drawing.Point(27, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 38);
             this.button2.TabIndex = 0;
@@ -435,17 +440,26 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(112)))), ((int)(((byte)(207)))));
+            this.panel1.Controls.Add(this.calculate_button);
+            this.panel1.Controls.Add(this.manage_button);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 52);
+            this.panel1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.calculate_button);
-            this.Controls.Add(this.manage_button);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.calculate_panel);
             this.Controls.Add(this.detail_panel);
             this.Controls.Add(this.add_panel);
             this.Controls.Add(this.manage_panel);
-            this.Controls.Add(this.calculate_panel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.calculate_panel.ResumeLayout(false);
@@ -458,6 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bs)).EndInit();
             this.detail_panel.ResumeLayout(false);
             this.detail_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -497,6 +512,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
