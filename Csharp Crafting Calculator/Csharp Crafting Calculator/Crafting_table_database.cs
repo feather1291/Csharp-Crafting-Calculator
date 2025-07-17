@@ -407,6 +407,18 @@ namespace Csharp_Crafting_Calculator
             {
                 delete_crafting(item.name);
             }
+            //去掉原有原料合成关系
+            foreach (var mt in edit_item.material_index)
+            {
+                for (int i = mt.product_index.Count - 1; i >= 0; i--)
+                {
+                    if (edit_item == mt.product_index[i])
+                    {
+                        mt.product_index.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
             data.items.Remove(edit_item);
             data.crafting_displays.Remove(edit_display);
         }
