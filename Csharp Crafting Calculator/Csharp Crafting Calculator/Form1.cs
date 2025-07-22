@@ -96,7 +96,7 @@ namespace Csharp_Crafting_Calculator
 
         private void back_add_button_Click(object sender, EventArgs e)
         {
-            panel_selector.only_display(manage_panel);
+            manage_button_Click(sender, e);
         }
 
         private void add_makesure_button_Click(object sender, EventArgs e)
@@ -325,7 +325,7 @@ namespace Csharp_Crafting_Calculator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panel_selector.only_display(manage_panel);
+            manage_button_Click(sender, e);
         }
         //表格双击事件
         private void displayed_crafting_table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

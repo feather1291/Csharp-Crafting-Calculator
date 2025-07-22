@@ -24,11 +24,12 @@ F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Craft
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.exe
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\Csharp Crafting Calculator.pdb
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\bin\Debug\PresentationFramework.dll
-F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csprojAssemblyReference.cache
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Form1.resources
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp_Crafting_Calculator.Properties.Resources.resources
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.GenerateResource.cache
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.CoreCompileInputs.cache
-F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.CopyComplete
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.exe
 F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.pdb
+F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.csproj.AssemblyReference.cache
+F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp Crafting Calculator.exe.config
+F:\CodeForFun\Csharp-Crafting-Calculator\Csharp Crafting Calculator\Csharp Crafting Calculator\obj\Debug\Csharp C.D98C177E.Up2Date

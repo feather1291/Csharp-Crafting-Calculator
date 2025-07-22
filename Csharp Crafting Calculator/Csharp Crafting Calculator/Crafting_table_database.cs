@@ -87,7 +87,7 @@ namespace Csharp_Crafting_Calculator
             }
             Item input_item = new Item(name);
             data.items.Add(input_item);
-            bs.Add(data_to_display(input_item));
+            data.crafting_displays.Add(data_to_display(input_item));
         }
         //添加合成表
         public void add(string name, int num, List<string> material, List<int> material_num)
@@ -122,7 +122,7 @@ namespace Csharp_Crafting_Calculator
                     //添加原料对象
                     Item temp_material = new Item(material[i]);
                     data.items.Add(temp_material);
-                    bs.Add(data_to_display(temp_material));
+                    data.crafting_displays.Add(data_to_display(temp_material));
                     material_index.Add(temp_material);
                 }
             }
@@ -151,7 +151,7 @@ namespace Csharp_Crafting_Calculator
                     //报错
                     throw new ArgumentException("合成表编辑失败，合成路径出现闭环！");
                 }
-                bs.Add(data_to_display(input_item));
+                data.crafting_displays.Add(data_to_display(input_item));
             }
             else                    //更新信息
             {
@@ -184,7 +184,7 @@ namespace Csharp_Crafting_Calculator
                     //报错
                     throw new ArgumentException("合成表编辑失败，合成路径出现闭环！");
                 }
-                bs[renew_index] = (data_to_display(input_item));
+                data.crafting_displays[renew_index] = (data_to_display(input_item));
             }
         }
 
