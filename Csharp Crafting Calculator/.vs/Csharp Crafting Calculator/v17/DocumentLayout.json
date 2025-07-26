@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|f:\\codeforfun\\csharp-crafting-calculator\\csharp crafting calculator\\csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|solutionrelative:csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|f:\\codeforfun\\csharp-crafting-calculator\\csharp crafting calculator\\csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|solutionrelative:csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|solutionrelative:csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|solutionrelative:csharp crafting calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97902BF1-01BB-4113-8404-4B079ECA25C6}|Csharp Crafting Calculator\\Csharp Crafting Calculator.csproj|F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\csharp crafting calculator\\crafting_table_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,31 +22,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\Csharp Crafting Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Csharp Crafting Calculator\\Form1.cs",
               "ToolTip": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\Csharp Crafting Calculator\\Form1.cs",
               "RelativeToolTip": "Csharp Crafting Calculator\\Form1.cs",
-              "ViewState": "AgIAADcBAAAAAAAAAAAcwEcBAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAQwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T02:30:20.876Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\Csharp Crafting Calculator\\Form1.cs",
               "RelativeDocumentMoniker": "Csharp Crafting Calculator\\Form1.cs",
               "ToolTip": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\Csharp Crafting Calculator\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Csharp Crafting Calculator\\Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T02:35:30.612Z"
+              "WhenOpened": "2025-07-22T02:35:30.612Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
             },
             {
               "$type": "Document",
@@ -56,9 +57,10 @@
               "RelativeDocumentMoniker": "Csharp Crafting Calculator\\Crafting_table_database.cs",
               "ToolTip": "F:\\CodeForFun\\Csharp-Crafting-Calculator\\Csharp Crafting Calculator\\Csharp Crafting Calculator\\Crafting_table_database.cs",
               "RelativeToolTip": "Csharp Crafting Calculator\\Crafting_table_database.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwEUAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAOcBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T02:30:20.819Z"
+              "WhenOpened": "2025-07-22T02:30:20.819Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -120,6 +120,7 @@
             // 
             // cal_btn
             // 
+            this.cal_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cal_btn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cal_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cal_btn.Location = new System.Drawing.Point(685, 33);
@@ -132,9 +133,11 @@
             // 
             // process_box
             // 
+            this.process_box.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.process_box.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.process_box.Location = new System.Drawing.Point(27, 129);
             this.process_box.Name = "process_box";
+            this.process_box.ReadOnly = true;
             this.process_box.Size = new System.Drawing.Size(744, 264);
             this.process_box.TabIndex = 1;
             this.process_box.Text = "";
@@ -142,12 +145,15 @@
             // manage_button
             // 
             this.manage_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.manage_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.manage_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.manage_button.Location = new System.Drawing.Point(270, 5);
+            this.manage_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.manage_button.FlatAppearance.BorderSize = 0;
+            this.manage_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manage_button.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.manage_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.manage_button.Location = new System.Drawing.Point(0, 5);
             this.manage_button.Margin = new System.Windows.Forms.Padding(0);
             this.manage_button.Name = "manage_button";
-            this.manage_button.Size = new System.Drawing.Size(105, 42);
+            this.manage_button.Size = new System.Drawing.Size(375, 42);
             this.manage_button.TabIndex = 0;
             this.manage_button.Text = "合成表管理";
             this.manage_button.UseVisualStyleBackColor = true;
@@ -155,11 +161,13 @@
             // 
             // calculate_button
             // 
+            this.calculate_button.FlatAppearance.BorderSize = 0;
+            this.calculate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculate_button.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.calculate_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.calculate_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.calculate_button.Location = new System.Drawing.Point(384, 5);
             this.calculate_button.Name = "calculate_button";
-            this.calculate_button.Size = new System.Drawing.Size(105, 42);
+            this.calculate_button.Size = new System.Drawing.Size(413, 42);
             this.calculate_button.TabIndex = 1;
             this.calculate_button.Text = "合成计算";
             this.calculate_button.UseVisualStyleBackColor = true;
@@ -196,6 +204,7 @@
             // 
             // load_button
             // 
+            this.load_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.load_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.load_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.load_button.Location = new System.Drawing.Point(604, 11);
@@ -208,6 +217,7 @@
             // 
             // add_button
             // 
+            this.add_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_button.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.add_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.add_button.Location = new System.Drawing.Point(27, 11);
@@ -220,6 +230,7 @@
             // 
             // save_button
             // 
+            this.save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.save_button.Location = new System.Drawing.Point(696, 11);
@@ -244,6 +255,7 @@
             // 
             // search_button
             // 
+            this.search_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.search_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.search_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.search_button.Location = new System.Drawing.Point(696, 56);
@@ -271,6 +283,7 @@
             // 
             // add_makesure_button
             // 
+            this.add_makesure_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_makesure_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.add_makesure_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.add_makesure_button.Location = new System.Drawing.Point(653, 305);
@@ -319,11 +332,12 @@
             this.add_item_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.add_item_box.Location = new System.Drawing.Point(103, 115);
             this.add_item_box.Name = "add_item_box";
-            this.add_item_box.Size = new System.Drawing.Size(129, 29);
+            this.add_item_box.Size = new System.Drawing.Size(180, 29);
             this.add_item_box.TabIndex = 1;
             // 
             // back_add_button
             // 
+            this.back_add_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back_add_button.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.back_add_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.back_add_button.Location = new System.Drawing.Point(27, 11);
@@ -353,6 +367,7 @@
             // 
             // button4
             // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button4.Location = new System.Drawing.Point(388, 305);
@@ -365,6 +380,7 @@
             // 
             // button3
             // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button3.Location = new System.Drawing.Point(507, 305);
@@ -377,6 +393,7 @@
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Location = new System.Drawing.Point(653, 305);
@@ -411,7 +428,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.richTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.richTextBox1.Location = new System.Drawing.Point(400, 115);
             this.richTextBox1.Name = "richTextBox1";
@@ -425,11 +442,12 @@
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox1.Location = new System.Drawing.Point(103, 115);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 29);
+            this.textBox1.Size = new System.Drawing.Size(180, 29);
             this.textBox1.TabIndex = 1;
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button2.Location = new System.Drawing.Point(27, 11);
@@ -457,10 +475,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(228)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.calculate_panel);
             this.Controls.Add(this.detail_panel);
             this.Controls.Add(this.add_panel);
             this.Controls.Add(this.manage_panel);
-            this.Controls.Add(this.calculate_panel);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Form1";

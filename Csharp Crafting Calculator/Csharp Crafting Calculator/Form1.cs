@@ -47,6 +47,7 @@ namespace Csharp_Crafting_Calculator
             displayed_crafting_table.Columns[0].FillWeight = 30; // 第1列占40%宽度
             displayed_crafting_table.Columns[1].FillWeight = 60; // 第2列占60%宽度
             displayed_crafting_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            manage_button_Click(manage_button, EventArgs.Empty);
         }
 
         private void save_database()
@@ -77,11 +78,50 @@ namespace Csharp_Crafting_Calculator
         {
             panel_selector.only_display(manage_panel);
             search_button_Click(sender, e);
+
+            // 设置按钮字体加粗并带下划线
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(
+                    btn.Font.FontFamily,
+                    btn.Font.Size,
+                    FontStyle.Bold | FontStyle.Underline
+                );
+            }
+
+            // 解除 calculate_button 的加粗和下划线
+            if (calculate_button != null)
+            {
+                calculate_button.Font = new Font(
+                    calculate_button.Font.FontFamily,
+                    calculate_button.Font.Size,
+                    FontStyle.Regular
+                );
+            }
         }
 
         private void calculate_button_Click(object sender, EventArgs e)
         {
             panel_selector.only_display(calculate_panel);
+            // 设置按钮字体加粗并带下划线
+            if (sender is Button btn)
+            {
+                btn.Font = new Font(
+                    btn.Font.FontFamily,
+                    btn.Font.Size,
+                    FontStyle.Bold | FontStyle.Underline
+                );
+            }
+
+            // 解除 calculate_button 的加粗和下划线
+            if (manage_button != null)
+            {
+                manage_button.Font = new Font(
+                    manage_button.Font.FontFamily,
+                    manage_button.Font.Size,
+                    FontStyle.Regular
+                );
+            }
         }
 
         private void save_button_Click(object sender, EventArgs e)
@@ -96,7 +136,7 @@ namespace Csharp_Crafting_Calculator
 
         private void back_add_button_Click(object sender, EventArgs e)
         {
-            manage_button_Click(sender, e);
+            manage_button_Click(manage_button, e);
         }
 
         private void add_makesure_button_Click(object sender, EventArgs e)
@@ -234,7 +274,12 @@ namespace Csharp_Crafting_Calculator
         private void cal_btn_Click(object sender, EventArgs e)
         {
             string input = product_box.Text;
-            if (input.Length == 0) return;
+            string output_text = null;
+            if (input.Length == 0)
+            {
+                process_box.Text = "请输入：\"物品名*数量\"，多个物品之间使用换行分隔！";
+                return;
+            }
             List<string> item_name = new List<string>();
             List<int> item_num = new List<int>();
             //提取文字内容
@@ -248,7 +293,12 @@ namespace Csharp_Crafting_Calculator
                 MessageBox.Show(err.ToString());
                 return;
             }
-            string output_text = null;
+            //如果物品数量为0
+            if (item_num.Count == 0)
+            {
+                process_box.Text = "请输入：\"物品名*数量\"，多个物品之间使用换行分隔！";
+                return;
+            }
             //尝试计算
             try
             {
@@ -325,7 +375,7 @@ namespace Csharp_Crafting_Calculator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            manage_button_Click(sender, e);
+            manage_button_Click(manage_button, e);
         }
         //表格双击事件
         private void displayed_crafting_table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
